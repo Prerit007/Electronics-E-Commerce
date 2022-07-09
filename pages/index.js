@@ -1,16 +1,20 @@
 import React from "react";
 
 const Home = () => {
-  return (
-    <>
+  return <div>Index</div>;
+};
+
+export default Home;
+/*
+<>
       HeroBanner
       <div>
         <h2>Best Selling Products</h2>
         <p>Speakers of Many Products</p>
       </div>
-      <div></div>
+      <div>
+        {["Product1", "Product2", "Product3"].map((product) => product)}
+      </div>
     </>
-  );
-};
 
-export default Home;
+    */
