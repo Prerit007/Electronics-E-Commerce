@@ -1,7 +1,16 @@
 import React from "react";
 
-const index = () => {
-  return <div>index</div>;
+const Home = () => {
+  return (
+    <>
+      HeroBanner
+      <div>
+        <h2>Best Selling Products</h2>
+        <p>Speakers of Many Products</p>
+      </div>
+      <div></div>
+    </>
+  );
 };
 
-export default index;
+export default Home;
