@@ -14,13 +14,13 @@ import { urlFor } from "../lib/client";
 import getStripe from "../lib/getStripe";
 
 const Cart = () => {
-  const CartRef = useRef();
+  const cartRef = useRef();
   const {
-    totalQuantities,
     totalPrice,
+    totalQuantities,
     cartItems,
     setShowCart,
-    toggleCartItemQuantity,
+    toggleCartItemQuanitity,
     onRemove,
   } = useStateContext();
 
@@ -45,7 +45,7 @@ const Cart = () => {
   };
 
   return (
-    <div className="cart-wrapper" ref={CartRef}>
+    <div className="cart-wrapper" ref={cartRef}>
       <div className="cart-container">
         <button
           type="button"
@@ -87,30 +87,37 @@ const Cart = () => {
                     <h4>₹{item.price}</h4>
                   </div>
                   <div className="flex bottom">
-                    <div></div>
-                    <p className="quantity-desc">
-                      <span
-                        className="minus"
-                        onClick={() => toggleCartItemQuantity(item._id, "dec")}
-                      >
-                        <AiOutlineMinus />
-                      </span>
-                      <span className="num">{item.quantity}</span>
-                      <span
-                        className="plus"
-                        onClick={() => toggleCartItemQuantity(item._id, "inc")}
-                      >
-                        <AiOutlinePlus />
-                      </span>
-                    </p>
+                    <div>
+                      <p className="quantity-desc">
+                        <span
+                          className="minus"
+                          onClick={() =>
+                            toggleCartItemQuanitity(item._id, "dec")
+                          }
+                        >
+                          <AiOutlineMinus />
+                        </span>
+                        <span className="num" onClick="">
+                          {item.quantity}
+                        </span>
+                        <span
+                          className="plus"
+                          onClick={() =>
+                            toggleCartItemQuanitity(item._id, "inc")
+                          }
+                        >
+                          <AiOutlinePlus />
+                        </span>
+                      </p>
+                    </div>
+                    <button
+                      type="button"
+                      className="remove-item"
+                      onClick={() => onRemove(item)}
+                    >
+                      <TiDeleteOutline />
+                    </button>
                   </div>
-                  <button
-                    type="button"
-                    className="remove-item"
-                    onClick={() => onRemove(item)}
-                  >
-                    <TiDeleteOutline />
-                  </button>
                 </div>
               </div>
             ))}
